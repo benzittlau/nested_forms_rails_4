@@ -1,0 +1,7 @@
+%h1 #{@shelf.title}
+- if @shelf.shelf_books.present?
+  %h2 Books:
+  - @shelf.shelf_books.each do |shelf_book|
+    .p= "#{shelf_book.book.title} (Condition #{shelf_book.condition})"
+
+= link_to "Back", :back

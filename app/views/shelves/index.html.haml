@@ -1,0 +1,5 @@
+%h1 Your Shelves
+- @shelves.each do |shelf|
+  .p= link_to shelf.full_display_title, shelf
+%br
+= link_to "New Shelf", new_shelf_path

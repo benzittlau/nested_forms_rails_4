@@ -1,0 +1,14 @@
+= form_for @shelf do |f|
+  %div
+    Shelf Name
+    = f.text_field :title
+  - unless @shelf.shelf_books.empty?
+    %div
+      Books:
+      = f.fields_for :shelf_books do |fb|
+        %div
+          = fb.select :book_id, Book.all.collect { |b| [ b.title, b.id ] }, include_blank: true
+          Condition
+          = fb.text_field :condition
+  %div
+    = f.submit
